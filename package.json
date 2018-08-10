@@ -6,8 +6,8 @@
     "private": true,
     "scripts": {
         "start": "run-p css-watch web",
-        "css-build": "sass --no-source-map theme/index.scss dist/theme.css",
-        "css-watch": "npm run css-build -- --watch",
+        "css-build": "sass --no-source-map --style compressed theme/index.scss dist/theme.min.css",
+        "css-watch": "sass --no-source-map --watch theme/index.scss dist/theme.css",
         "web": "live-server --no-browser --port=8000 --open=index.html --watch=dist"
     },
     "repository": {
