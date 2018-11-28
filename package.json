@@ -6,7 +6,10 @@
     "private": true,
     "scripts": {
         "start": "run-p css-watch web",
-        "css-build": "sass --no-source-map --style compressed theme/index.scss dist/theme.min.css",
+        "css": "run-s css-build css-prefix css-minify",
+        "css-build": "sass --no-source-map theme/index.scss dist/theme.css",
+        "css-prefix": "postcss dist/theme.css --use autoprefixer -o dist/theme.css",
+        "css-minify": "cleancss --level 1 --source-map --source-map-inline-sources --output dist/theme.min.css dist/theme.css",
         "css-watch": "sass --no-source-map --watch theme/index.scss dist/theme.css",
         "web": "live-server --no-browser --port=8000 --open=index.html --watch=dist"
     },
@@ -28,9 +31,13 @@
     },
     "homepage": "https://github.com/matt-snider/bootstrap4-custom-theme-seed#readme",
     "dependencies": {
+        "autoprefixer": "^9.3.1",
         "bootstrap": "4.1.3",
+        "clean-css": "^4.2.1",
+        "clean-css-cli": "^4.2.1",
         "live-server": "^1.2.0",
         "npm-run-all": "^4.1.3",
+        "postcss-cli": "^6.0.1",
         "sass": "^1.10.3"
     }
 }
