@@ -30,10 +30,10 @@ and watch as the demo page automatically updates to show your changes.
 
 ## Building
 
-When you are satisfied with your theme, you can build a minified version via:
+When you are satisfied with your theme, you can build a minified and unminified version in `dist/` via:
 
 ```sh
-$ npm run css-build
+$ npm run css
 # or
-$ yarn run css-build
+$ yarn run css
 ```
